@@ -22,6 +22,8 @@ public class Horoscope {
     public HoroscopeOutPut getHoroscope(String donneesSigne){
         HoroscopeOutPut horoscopeOutPut = new HoroscopeOutPut();
 
+        Document docXML = convertStringToXMLDocument(donneesSigne);
+
         String description ="";
         horoscopeOutPut.setDescription(description);
         return horoscopeOutPut;
