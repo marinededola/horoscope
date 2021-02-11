@@ -1,6 +1,6 @@
 package com.ipiecoles.horoscope;
 
-import jdk.vm.ci.meta.Local;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +30,9 @@ public class Horoscope {
 
     }
     public HoroscopeData getHoroscope(String signe, String donneesSigne){
+        if (signe == null){
+            return null;
+        }
 
         return null;
     }

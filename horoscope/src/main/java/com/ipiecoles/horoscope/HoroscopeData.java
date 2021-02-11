@@ -1,5 +1,6 @@
 package com.ipiecoles.horoscope;
 
+//Donnee entre service
 public class HoroscopeData {
 
     private String signe;
