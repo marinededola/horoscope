@@ -1,13 +1,15 @@
 package com.ipiecoles.horoscope;
 
+import jdk.vm.ci.meta.Local;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.StringJoiner;
 
 public class Horoscope {
-
 
     private String getPageContents(String address) throws IOException {
         BufferedReader br = null;
@@ -26,5 +28,9 @@ public class Horoscope {
         }
         return lines.toString();
 
+    }
+    public HoroscopeData getHoroscope(String signe, String donneesSigne){
+
+        return null;
     }
 }
