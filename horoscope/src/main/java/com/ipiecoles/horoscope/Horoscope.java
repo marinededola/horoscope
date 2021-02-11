@@ -3,6 +3,9 @@ package com.ipiecoles.horoscope;
 
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -12,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.StringJoiner;
 
 public class Horoscope {
@@ -24,9 +26,28 @@ public class Horoscope {
 
         Document docXML = convertStringToXMLDocument(donneesSigne);
 
-        String description ="";
+        String description = descriptionXML(docXML); // ecrire le parse pour recuperer la description
+
         horoscopeOutPut.setDescription(description);
         return horoscopeOutPut;
+    }
+
+    private static String descriptionXML(Document docXML){
+
+        docXML.getDocumentElement().normalize();
+
+        NodeList nList = docXML.getElementsByTagName("item");
+        String description = "";
+        for (int temp = 0; temp < nList.getLength(); temp++) {
+            Node nNode = nList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                description = eElement.getElementsByTagName("description").item(0).getTextContent();
+
+            }
+        }
+        description = description.replace("\n", " ");
+        return description;
     }
 
     private static Document convertStringToXMLDocument(String xmlString)
