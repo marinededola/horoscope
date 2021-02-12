@@ -1,5 +1,6 @@
 package com.ipiecoles.horoscope;
 
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -10,6 +11,7 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.IOException;
 import java.io.StringReader;
 import java.time.LocalDate;
 
@@ -99,8 +101,21 @@ public class HoroscopeTest {
         Assertions.assertThat(horoscopeOutPut.getDescription()).isEqualTo(" <br/><center><br/><img src=\"https://www.asiaflash.com/anh/af_occ02_01_belier.jpg\" alt=\"Bélier\" title=\"Bélier\"/></center> <br><br><b>Horoscope Bélier - Amour</b><br> Vénus en aspect harmonique protégera votre vie conjugale. Cette journée sera agréable à vivre, marquée par un regain de sensualité et de passion. Mais attention : si votre couple traverse une crise importante, Vénus à elle toute seule ne parviendra pas à redresser la situation, et vous ne devrez donc pas vous faire trop d'illusions. Célibataire, vous ferez de véritables ravages. Attention à ceux qui vous entourent ! Pourtant, même si vous jonglez avec les coeurs, vous vous arrangerez pour éviter les complications.  <br><br><b>Horoscope Bélier - Argent</b><br> Vénus est une planète bénéfique et devrait vous porter chance en matière pécuniaire. Il faudra pourtant éviter de prendre trop de risques et vous méfier des envies d'achat déraisonnables.  <br><br><b>Horoscope Bélier - Santé</b><br> Les astres vous inclineront à prendre des initiatives positives pour clarifier votre état de santé, et ainsi dominer tous vos doutes et toutes vos inquiétudes dans ce domaine. Un bon check-up général serait recommandé ; la Sécurité Sociale vous en offre d'ailleurs un tous les cinq ans. N'hésitez plus, pour une raison ou une autre.  <br><br><b>Horoscope Bélier - Travail</b><br> Vous serez bien décidé à aller au bout de vos projets. La planète Mars vous y aidera, en décuplant votre énergie. Cependant, les travaux de routine ne seront toujours pas votre tasse de thé ; évitez-les au maximum durant cette journée, ou confiez-les à une personne dont vous connaissez bien le sérieux et la ponctualité.  <br><br><b>Horoscope Bélier - Famille</b><br> Nette amélioration de vos relations avec les personnes âgées de votre entourage familial. Tous ceux d'entre vous qui ont eu dernièrement du mal avec leurs parents vont enfin trouver un terrain d'entente et de dialogue. N'hésitez pas à leur rendre visite : vous pourrez profiter de cette complicité retrouvée. Avec vos enfants, la journée sera facile à vivre et agréable.  <br><br><b>Horoscope Bélier - Vie sociale</b><br> Votre esprit de compétition sera très aiguisé. Que ce soit dans votre travail ou dans vos loisirs, vous chercherez à prouver que vous restez le meilleur.  <br><br><b>Horoscope Bélier - Citation du jour</b><br> Chacun sa besace (proverbe français).  <br><br><b>Horoscope Bélier - Nombre de chance</b><br> 558  <br><br><b>Horoscope Bélier - Clin d'oeil</b><br> Montrez-vous moins suggestible et moins influençable.   <br><br> <center> <a href=\"https://www.asiaflash.com/horoscope-2021/\" target=\"_blank\"><font size=\"-1\">Horoscope 2021</font></a> | <a href=\"https://www.asiaflash.com/tarot/\" target=\"_blank\"><font size=\"-1\">Tarot gratuit</font></a> | <a href=\"https://www.asiaflash.com/horoscope/\" target=\"_blank\"><font size=\"-1\">Horoscopes</font></a> <br> <a href=\"https://www.asiaflash.com/\" target=\"_blank\"><font size=\"-1\">(c) AsiaFlash.com</font></a> </center>      ");
     }
 
+/*    @Test
+    public void testMethodeHandler{
+        Horoscope horoscope = new Horoscope();
+        String signe = "bélier";
+        try {
+            HoroscopeOutPut des = horoscope.getHoroscopeFromSigne(signe);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        GatewayResponse response = RequestHandler(Signe, context);
 
-    @Test
+    }*/
+
+
+/*    @Test
     public void testHoroscopeSigneNull(){
 
         //Given
@@ -117,5 +132,5 @@ public class HoroscopeTest {
         //Objet crée avec la bonne valeurs dans les attributs
 
         Assertions.assertThat(horoscopeData.getSigne()).isNull();
-    }
+    }*/
 }

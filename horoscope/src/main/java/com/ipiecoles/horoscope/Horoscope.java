@@ -90,13 +90,23 @@ public class Horoscope {
             }
         }
         return lines.toString();
+    }
+
+    public HoroscopeOutPut getHoroscopeFromSigne(String signe) throws IOException {
+
+
+        String url = "https://www.asiaflash.com/horoscope/rss_horojour_"+signe+".xml";
+        String donnée = getPageContents(url);
+        HoroscopeOutPut horoscopeOutPut = getHoroscope(donnée);
+        return horoscopeOutPut;
 
     }
-    public HoroscopeData getHoroscope(String signe, String donneesSigne){
+
+/*    public HoroscopeData getHoroscope(String signe, String donneesSigne){
         if (signe == null){
             return null;
         }
 
         return null;
-    }
+    }*/
 }
