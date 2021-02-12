@@ -28,7 +28,7 @@ public class Horoscope {
 
         String description = descriptionXML(docXML); // ecrire le parse pour recuperer la description
 
-        horoscopeOutPut.setDescription(description);
+        horoscopeOutPut.setHoroscope(description);
         return horoscopeOutPut;
     }
 

@@ -4,13 +4,13 @@ import java.util.SplittableRandom;
 
 public class HoroscopeOutPut {
     // Donnee Sortie service
-  private String description;
+  private String horoscope;
 
-    public String getDescription() {
-        return description;
+    public String getHoroscope() {
+        return horoscope;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setHoroscope(String horoscope) {
+        this.horoscope = horoscope;
     }
 }

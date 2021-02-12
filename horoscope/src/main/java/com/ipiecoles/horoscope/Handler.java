@@ -18,12 +18,10 @@ public class Handler implements RequestHandler<HoroscopeData , GatewayResponse> 
             String signe = input.getSigne();
 
             HoroscopeOutPut horoscopeOutPut = horoscope.getHoroscopeFromSigne(signe);
-            String description = horoscopeOutPut.getDescription();
-
 
             //recuperer la description
             Genson genson = new GensonBuilder().useRuntimeType(true).create();
-            String body = genson.serialize(description);
+            String body = genson.serialize(horoscopeOutPut);
 
             Map<String, String> headers = new HashMap<>();
             headers.put("Content-Type","applicatton/json");
@@ -33,9 +31,14 @@ public class Handler implements RequestHandler<HoroscopeData , GatewayResponse> 
             GatewayResponse gatewayResponse = new GatewayResponse(body, headers, statusCode);
             return new GatewayResponse(body, headers, statusCode);
         } catch (IOException e) {
-            //Gère correctement l'exception
+            String body = "Une erreur a été rencontrée";
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Content-Type","applicatton/json");
+            headers.put("access-Control-Allow-Origin","https://pjvilloud.github.io");
+            int statusCode = 400;
             e.printStackTrace();
+            GatewayResponse gatewayResponse = new GatewayResponse(body, headers, statusCode);
+            return new GatewayResponse(body, headers, statusCode);
         }
-        return null;
     }
 }
